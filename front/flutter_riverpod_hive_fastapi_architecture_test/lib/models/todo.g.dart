@@ -17,9 +17,9 @@ class TodoAdapter extends TypeAdapter<Todo> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return Todo(
-      id: fields[0] as String,
+      id: fields[0] as int,
       title: fields[1] as String,
-      done: fields[2] as bool,
+      isCompleted: fields[2] as bool,
     );
   }
 
@@ -32,7 +32,7 @@ class TodoAdapter extends TypeAdapter<Todo> {
       ..writeByte(1)
       ..write(obj.title)
       ..writeByte(2)
-      ..write(obj.done);
+      ..write(obj.isCompleted);
   }
 
   @override
